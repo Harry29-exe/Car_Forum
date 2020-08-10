@@ -38,12 +38,15 @@ public class Forum {
     }
 
     @PostMapping("/api/postResources")
-    public boolean addResource(@RequestBody PostResource postResource) {
-
+    public boolean addResourceToPost(@RequestBody PostResource postResource) {
+        long id = postResourceRepository.save(postResource).getId();
+        return postResourceRepository.existsById(id);
     }
 
     @PostMapping("/api/resources")
-    public
+    public boolean addResource() {
+        return false;
+    }
 
 
 
