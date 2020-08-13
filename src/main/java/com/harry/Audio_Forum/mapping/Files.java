@@ -1,24 +1,31 @@
 package com.harry.Audio_Forum.mapping;
 
 import com.harry.Audio_Forum.FileUploadService;
+import com.harry.Audio_Forum.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+
+import java.net.http.HttpHeaders;
 
 @RestController
 public class Files {
 
     private FileUploadService fileUploadService;
+    private final StorageService storageService;
+
 
     @Autowired
-    public Files(FileUploadService fileUploadService) {
+    public Files(FileUploadService fileUploadService, StorageService storageService) {
         this.fileUploadService = fileUploadService;
+        this.storageService = storageService;
     }
 
     @PostMapping("/api/resources")
@@ -35,34 +42,13 @@ public class Files {
         return in.readAllBytes();
     }
 
-    @GetMapping("/api/res")
-    public Resource getResource2() throws IOException {
-        return new Resource(new FileInputStream("F:\\spring\\file.jpg").readAllBytes(), "jpg");
+    @GetMapping("/files/{filename:.+}")
+    @ResponseBody
+    public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
+
+        Resource file = storageService.loadAsResource(filename);
+        return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
+                "attachment; filename=\"" + file.getFilename() + "\"").body(file);
     }
 
-    private class Resource {
-        private byte[] inputStream;
-        private String type;
-
-        public Resource(byte[] inputStream, String type) {
-            this.inputStream = inputStream;
-            this.type = type;
-        }
-
-        public byte[] getInputStream() {
-            return inputStream;
-        }
-
-        public void setInputStream(byte[] inputStream) {
-            this.inputStream = inputStream;
-        }
-
-        public String getType() {
-            return type;
-        }
-
-        public void setType(String type) {
-            this.type = type;
-        }
-    }
 }
