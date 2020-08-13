@@ -43,13 +43,6 @@ public class Forum {
         return postResourceRepository.existsById(id);
     }
 
-    @PostMapping("/api/resources")
-    public boolean addResource() {
-        return false;
-    }
-
-
-
     @DeleteMapping("/api/post")
     public boolean deletePost(@RequestParam long id) {
         if(postRepository.findById(id).isPresent()) {
