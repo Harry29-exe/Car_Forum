@@ -1,3 +1,5 @@
+package com.harry.Audio_Forum.services;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -7,7 +9,8 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.stream.Stream;
 
-import com.harry.Audio_Forum.StorageService;
+import com.harry.Audio_Forum.Exceptions.StorageException;
+import com.harry.Audio_Forum.Exceptions.StorageFileNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -21,9 +24,9 @@ public class FileSystemStorageService implements StorageService {
 
     private final Path rootLocation;
 
-    @Autowired
-    public FileSystemStorageService(StorageProperties properties) {
-        this.rootLocation = Paths.get(properties.getLocation());
+
+    public FileSystemStorageService() {
+        this.rootLocation = Paths.get("C:\\springDataBase");
     }
 
     @Override
