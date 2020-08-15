@@ -1,4 +1,4 @@
-package com.harry.Audio_Forum;
+package com.harry.Audio_Forum.backend;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,6 +1,4 @@
-package com.harry.Audio_Forum.services;
-
-import org.springframework.boot.context.properties.ConfigurationProperties;
+package com.harry.Audio_Forum.backend.services;
 
 //@ConfigurationProperties("storage")
 public class StorageProperties {

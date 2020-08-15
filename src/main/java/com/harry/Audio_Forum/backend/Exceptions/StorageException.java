@@ -1,4 +1,4 @@
-package com.harry.Audio_Forum.Exceptions;
+package com.harry.Audio_Forum.backend.Exceptions;
 
 public class StorageException extends RuntimeException {
 

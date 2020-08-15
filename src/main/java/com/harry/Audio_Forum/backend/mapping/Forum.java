@@ -1,9 +1,10 @@
-package com.harry.Audio_Forum.mapping;
+package com.harry.Audio_Forum.backend.mapping;
 
-import com.harry.Audio_Forum.pojo.Post;
-import com.harry.Audio_Forum.pojo.PostRepository;
-import com.harry.Audio_Forum.pojo.PostResource;
-import com.harry.Audio_Forum.pojo.PostResourceRepository;
+import com.harry.Audio_Forum.backend.pojo.Post;
+import com.harry.Audio_Forum.backend.pojo.PostRepository;
+import com.harry.Audio_Forum.backend.pojo.PostResource;
+import com.harry.Audio_Forum.backend.pojo.PostResourceRepository;
+import org.atmosphere.config.service.Get;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +20,11 @@ public class Forum {
     public Forum(PostRepository postRepository, PostResourceRepository postResourceRepository) {
         this.postRepository = postRepository;
         this.postResourceRepository = postResourceRepository;
+    }
+
+    @GetMapping("/api/hello")
+    public String sayHello() {
+        return "Hello";
     }
 
     @GetMapping("/api/post")
