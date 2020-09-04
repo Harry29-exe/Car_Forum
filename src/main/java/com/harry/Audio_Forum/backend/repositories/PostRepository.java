@@ -75,11 +75,43 @@ public class PostRepository {
     }
 
     public static Post findPost(int id) {
-        return  null;
+        EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+        EntityTransaction et = null;
+
+        Post post = null;
+        try {
+            et = em.getTransaction();
+            et.begin();
+            post = em.find(Post.class, id);
+        } catch (Exception ex) {
+            if(et != null) {
+                et.rollback();
+            }
+            ex.printStackTrace();
+        } finally {
+            em.close();
+        }
+        return post;
     }
 
     public static Post findPost(String Content) {
-        return null;
+        EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+        EntityTransaction et = null;
+
+        Post post = null;
+        try {
+            et = em.getTransaction();
+            et.begin();
+            post = em.find(Post.class, Content);
+        } catch (Exception ex) {
+            if(et != null) {
+                et.rollback();
+            }
+            ex.printStackTrace();
+        } finally {
+            em.close();
+        }
+        return post;
     }
 
 
