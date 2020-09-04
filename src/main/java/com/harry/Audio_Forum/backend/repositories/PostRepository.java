@@ -30,23 +30,63 @@ public class PostRepository {
         }
     }
 
-    public static void deletePost(int id) {
+    public static void deletePost(long id) {
         EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
         EntityTransaction et = null;
 
         try {
             et = em.getTransaction();
             et.begin();
-            if(em.find(Post.class, id) != null) {
-
+            Post post;
+            if( (post = em.find(Post.class, id)) != null) {
+                em.remove(post);
             }
+            et.commit();
         } catch (Exception ex) {
-
+            if(et != null) {
+                et.rollback();
+            }
+            ex.printStackTrace();
+        } finally {
+            em.close();
         }
     }
 
+    public static void editPost(long id, String updatedContent) {
+        EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+        EntityTransaction et = null;
+
+        try {
+            et = em.getTransaction();
+            et.begin();
+            Post post;
+            if( (post = em.find(Post.class, id)) != null ) {
+                post.setContent(updatedContent);
+            }
+            et.commit();
+        } catch (Exception ex) {
+            if(et != null) {
+                et.rollback();
+            }
+            ex.printStackTrace();
+        } finally {
+            em.close();
+        }
+    }
+
+    public static Post findPost(int id) {
+        return  null;
+    }
+
+    public static Post findPost(String Content) {
+        return null;
+    }
+
+
+
     public static void main(String[] args) {
         PostRepository.addPost("testing hibernate", "main function");
+        PostRepository.editPost(1, "new content for id = 1");
         System.out.println("finished");
     }
 }
