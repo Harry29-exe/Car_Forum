@@ -1,11 +1,9 @@
 package com.harry.Audio_Forum.backend.pojo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name="post")
 public class Post {
 
     public Post(String content, String author) {
@@ -17,9 +15,12 @@ public class Post {
     }
 
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "content", nullable = false)
     private String content;
+    @Column(name = "author", nullable = false)
     private String author;
 
     @Override
