@@ -1,4 +1,4 @@
-package com.harry.Audio_Forum.frontend;
+package com.harry.Car_Forum.frontend;
 
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.icon.Icon;

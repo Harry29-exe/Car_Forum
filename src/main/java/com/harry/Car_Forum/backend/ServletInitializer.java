@@ -1,6 +1,6 @@
-package com.harry.Audio_Forum.backend;
+package com.harry.Car_Forum.backend;
 
-import com.harry.Audio_Forum.AudioForumApplication;
+import com.harry.Car_Forum.AudioForumApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 

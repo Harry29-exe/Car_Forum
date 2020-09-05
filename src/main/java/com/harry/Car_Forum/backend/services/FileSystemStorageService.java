@@ -1,4 +1,4 @@
-package com.harry.Audio_Forum.backend.services;
+package com.harry.Car_Forum.backend.services;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,8 +9,8 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.stream.Stream;
 
-import com.harry.Audio_Forum.backend.Exceptions.StorageException;
-import com.harry.Audio_Forum.backend.Exceptions.StorageFileNotFoundException;
+import com.harry.Car_Forum.backend.Exceptions.StorageException;
+import com.harry.Car_Forum.backend.Exceptions.StorageFileNotFoundException;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;

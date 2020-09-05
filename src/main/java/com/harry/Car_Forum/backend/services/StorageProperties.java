@@ -1,4 +1,4 @@
-package com.harry.Audio_Forum.backend.services;
+package com.harry.Car_Forum.backend.services;
 
 //@ConfigurationProperties("storage")
 public class StorageProperties {

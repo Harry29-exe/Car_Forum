@@ -1,6 +1,6 @@
-package com.harry.Audio_Forum.backend.repositories;
+package com.harry.Car_Forum.backend.repositories;
 
-import com.harry.Audio_Forum.backend.pojo.Post;
+import com.harry.Car_Forum.backend.pojo.Post;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

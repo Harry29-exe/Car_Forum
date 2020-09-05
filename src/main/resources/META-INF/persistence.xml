@@ -10,7 +10,7 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!-- Define the object that should be persisted in the database -->
 
-        <class>com.harry.Audio_Forum.backend.pojo.Post</class>
+        <class>com.harry.Car_Forum.backend.pojo.Post</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />

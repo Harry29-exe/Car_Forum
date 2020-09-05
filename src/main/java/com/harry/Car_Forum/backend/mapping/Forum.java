@@ -1,4 +1,4 @@
-package com.harry.Audio_Forum.backend.mapping;
+package com.harry.Car_Forum.backend.mapping;
 
 import org.springframework.web.bind.annotation.*;
 

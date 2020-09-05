@@ -1,4 +1,4 @@
-package com.harry.Audio_Forum.backend;
+package com.harry.Car_Forum.backend;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

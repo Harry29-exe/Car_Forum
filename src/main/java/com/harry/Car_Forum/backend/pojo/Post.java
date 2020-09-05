@@ -1,4 +1,4 @@
-package com.harry.Audio_Forum.backend.pojo;
+package com.harry.Car_Forum.backend.pojo;
 
 import javax.persistence.*;
 

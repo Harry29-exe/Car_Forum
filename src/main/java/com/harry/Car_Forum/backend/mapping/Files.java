@@ -1,7 +1,7 @@
-package com.harry.Audio_Forum.backend.mapping;
+package com.harry.Car_Forum.backend.mapping;
 
-import com.harry.Audio_Forum.backend.services.FileUploadService;
-import com.harry.Audio_Forum.backend.services.StorageService;
+import com.harry.Car_Forum.backend.services.FileUploadService;
+import com.harry.Car_Forum.backend.services.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
