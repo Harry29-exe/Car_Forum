@@ -118,7 +118,7 @@ public class PostRepository {
 
     public static void main(String[] args) {
         PostRepository.addPost("testing hibernate", "main function");
-        PostRepository.editPost(1, "new content for id = 1");
+
         System.out.println("finished");
     }
 }

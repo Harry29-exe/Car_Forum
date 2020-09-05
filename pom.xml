@@ -8,12 +8,13 @@
 		<version>2.3.2.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>com.harry</groupId>
-	<artifactId>Audio_Forum</artifactId>
+	<artifactId>Car_Forum</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>Audio_Forum</name>
+	<name>Car_Forum</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
