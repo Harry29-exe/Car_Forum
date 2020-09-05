@@ -7,10 +7,10 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
 @EntityScan(basePackages = "com.harry.Audio_Forum")
-public class AudioForumApplication {
+public class CarForumApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AudioForumApplication.class, args);
+		SpringApplication.run(CarForumApplication.class, args);
 		PostRepository.addPost("post ze springa", "spring main");
 	}
 
