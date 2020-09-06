@@ -2,10 +2,10 @@ package com.harry.Car_Forum.backend.repositories;
 
 import com.harry.Car_Forum.backend.pojo.Post;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.List;
 
 public class PostRepository {
     private static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory("hibernate1");
@@ -94,31 +94,34 @@ public class PostRepository {
         return post;
     }
 
-    public static Post findPost(String Content) {
+    public static List<Post> findPostsContaining(String partOfContent) {
         EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
-        EntityTransaction et = null;
+        String query = "SELECT p FROM Post p WHERE p.content LIKE :partOfContent";
+        TypedQuery<Post> tq = em.createQuery(query, Post.class);
 
-        Post post = null;
+        List<Post> posts = null;
         try {
-            et = em.getTransaction();
-            et.begin();
-            post = em.find(Post.class, Content);
+            tq.setParameter("partOfContent", ("%" +partOfContent + "%"));
+            posts = tq.getResultList();
         } catch (Exception ex) {
-            if(et != null) {
-                et.rollback();
+            if(ex instanceof NoResultException) {
+                return null;
             }
             ex.printStackTrace();
         } finally {
             em.close();
         }
-        return post;
+        return posts;
     }
 
 
 
     public static void main(String[] args) {
-        PostRepository.addPost("testing hibernate", "main function");
+        List<Post> post  = findPostsContaining("main");
+        if(post != null) {
+            System.out.println(post.size());
+        }
 
-        System.out.println("finished");
+        System.out.println("finished") ;
     }
 }
