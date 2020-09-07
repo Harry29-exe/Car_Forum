@@ -1,6 +1,6 @@
 package com.harry.Car_Forum;
 
-import com.harry.Car_Forum.backend.repositories.PostRepository;
+import com.harry.Car_Forum.backend.persistance.PostRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;

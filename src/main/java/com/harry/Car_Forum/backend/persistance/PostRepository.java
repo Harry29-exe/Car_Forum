@@ -1,10 +1,6 @@
-package com.harry.Car_Forum.backend.repositories;
-
-import com.harry.Car_Forum.backend.pojo.Post;
+package com.harry.Car_Forum.backend.persistance;
 
 import javax.persistence.*;
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.List;
 
 public class PostRepository {
@@ -94,7 +90,7 @@ public class PostRepository {
         return post;
     }
 
-    public static List<Post> findPostsContaining(String partOfContent) {
+    public static List<Post> findPosts(String partOfContent) {
         EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
         String query = "SELECT p FROM Post p WHERE p.content LIKE :partOfContent";
         TypedQuery<Post> tq = em.createQuery(query, Post.class);
@@ -114,10 +110,30 @@ public class PostRepository {
         return posts;
     }
 
+    public static List<Post> findPost(String Author) {
+        EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+        String query = "SELECT p FROM Post p WHERE p.author = :author";
+        TypedQuery<Post> tq = em.createQuery(query, Post.class);
+
+        List<Post> posts = null;
+        try {
+            tq.setParameter("author", Author);
+            posts = tq.getResultList();
+        } catch (Exception ex) {
+            if(ex instanceof NoResultException) {
+                return null;
+            }
+            ex.printStackTrace();
+        } finally {
+            em.close();
+        }
+        return posts;
+    }
+
 
 
     public static void main(String[] args) {
-        List<Post> post  = findPostsContaining("main");
+        List<Post> post  = findPosts("main");
         if(post != null) {
             System.out.println(post.size());
         }

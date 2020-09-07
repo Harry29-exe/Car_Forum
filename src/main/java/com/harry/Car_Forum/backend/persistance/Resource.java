@@ -1,4 +1,4 @@
-package com.harry.Car_Forum.backend.pojo;
+package com.harry.Car_Forum.backend.persistance;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
